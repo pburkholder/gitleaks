@@ -118,7 +118,7 @@ func (tomlLoader TomlLoader) Parse() (Config, error) {
 	for _, rule := range tomlLoader.Rules {
 		// check and make sure the rule is valid
 		if rule.Regex == "" && rule.Path == "" && rule.File == "" && len(rule.Entropies) == 0 {
-			log.Warnf("Rule %s does not define any actionable data", rule.Description)
+			log.Warnf("Rule \"%s\" does not define any actionable data", rule.Description)
 			continue
 		}
 		re, err := regexp.Compile(rule.Regex)
